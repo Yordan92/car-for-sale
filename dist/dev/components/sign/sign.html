@@ -1,0 +1,31 @@
+<h1>Sign Up </h1>
+<form class="top-bar flex-rows" [ng-form-model]="myForm" (ng-submit)="submitUser(myForm)">
+	<div class="flex-fill top-bar">
+		<span class="flex-fill">First Name</span>
+		<input  [ng-form-control]="myForm.controls['firstName']" class="flex-fill" type="text"/>
+	</div>
+	<div  *ng-if="!myForm.controls['firstName'].valid && myForm.controls['firstName'].touched" class="ui error message" style="color: red">First Name must not be null
+	</div>
+	<div class="flex-fill top-bar">
+		<span class="flex-fill">Last Name</span>
+		<input  [ng-form-control]="myForm.controls['lastName']" class="flex-fill" type="text"/>
+	</div>
+
+	<div class="flex-fill top-bar">
+		<span class="flex-fill">Password</span>
+		<input #passinput [ng-form-control]="myForm.controls['pass']"  class="flex-fill" type="password">
+	</div>
+	<div  *ng-if="!myForm.controls['pass'].valid && myForm.controls['pass'].touched" class="ui error message" style="color: red">Password must not be  null
+	</div>
+
+	<div class="flex-fill top-bar">
+		<span class="flex-fill">Re Password</span>
+		<input  [ng-form-control]="myForm.controls['re-pass']" class="flex-fill" type="password">
+	</div>
+	<div  *ng-if="!myForm.controls['re-pass'].valid && myForm.controls['re-pass'].touched" class="ui error message" style="color: red">Re password must not be null
+	</div>
+ 
+
+<input type="submit"/>
+<button>Close</button>
+</form>

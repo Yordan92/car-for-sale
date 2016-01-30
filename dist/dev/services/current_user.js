@@ -1,0 +1,9 @@
+var CurrentUser = (function () {
+    function CurrentUser() {
+    }
+    return CurrentUser;
+})();
+exports.CurrentUser = CurrentUser;
+;
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlcnZpY2VzL2N1cnJlbnRfdXNlci50cyJdLCJuYW1lcyI6WyJDdXJyZW50VXNlciIsIkN1cnJlbnRVc2VyLmNvbnN0cnVjdG9yIl0sIm1hcHBpbmdzIjoiQUFBQTtJQUFBQTtJQUVBQyxDQUFDQTtJQUFERCxrQkFBQ0E7QUFBREEsQ0FGQSxBQUVDQSxJQUFBO0FBRlksbUJBQVcsY0FFdkIsQ0FBQTtBQUFBLENBQUMiLCJmaWxlIjoic2VydmljZXMvY3VycmVudF91c2VyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNsYXNzIEN1cnJlbnRVc2VyIHtcblxufTtcbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==
