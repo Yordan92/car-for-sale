@@ -1,12 +1,12 @@
 export class SignValidators {
     static rePassValidator(form, control): any {  
         console.log(form);
-        let value = "";
+        let value = '';
         if (form) {
             value = form.controls[control];
         }
         return function (control) {
-            if(value && value !== "") {
+            if(value && value !='') {
                 if (value !== control.value) {
                     return {noMatch: true};
                 }
@@ -14,5 +14,4 @@ export class SignValidators {
             return null;
         }
     }
-
-}
+};

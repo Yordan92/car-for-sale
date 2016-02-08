@@ -1,10 +1,9 @@
-import {Component, bind, bootstrap, ViewEncapsulation, NgFor} from 'angular2/angular2';
+import {Component, bind, bootstrap, ViewEncapsulation, NgFor, NgIf} from 'angular2/angular2';
 import {
   RouteConfig,
   ROUTER_DIRECTIVES,
   ROUTER_BINDINGS,
-  ROUTER_PRIMARY_COMPONENT,
-  CanActivate
+  ROUTER_PRIMARY_COMPONENT
 } from 'angular2/router';
 import {HTTP_BINDINGS} from 'angular2/http';
 
@@ -13,16 +12,17 @@ import {About} from './components/about/about';
 import {NameList} from './services/name_list';
 import {Users} from './components/users/users';
 import {Sign} from './components/sign/sign';
+import {LogIn} from './components/login/login';
 import {UserService} from './components/users/services/user_service';
-import {current_user} from './services/current_user';
-import {User} from './services/User';
+// import {current_user} from './services/current_user';
+import {User} from './services/user';
 @Component({
   selector: 'app',
-  viewBindings: [NameList, UserService],
+  viewBindings: [NameList, UserService, User],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
   encapsulation: ViewEncapsulation.None,
-  directives: [ROUTER_DIRECTIVES, NgFor]
+  directives: [ROUTER_DIRECTIVES, NgFor, NgIf]
 })
 
 
@@ -30,15 +30,21 @@ import {User} from './services/User';
   { path: '/', redirectTo: '/home' },
   { path: '/home', component: Home, as: 'Home' },
   { path: '/about', component: About, as: 'About' },
+  { path: '/login', component: LogIn, as: 'LogIn' },
   { path: '/sign', component: Sign, as: 'Sign'},
   { path: '/users/...', component: Users, as: 'Users' }
 ])
 
-class App {}
+class App {
+
+  constructor(public user: User) { 
+  }
+}
 
 
 bootstrap(App, [
   ROUTER_BINDINGS,
   bind(ROUTER_PRIMARY_COMPONENT).toValue(App),
-  HTTP_BINDINGS
+  HTTP_BINDINGS,
+  User
 ]);

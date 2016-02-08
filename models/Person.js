@@ -9,7 +9,7 @@ module.exports = function() {
                     firstName : String,
                     lastName : String,
                     password : String,
-                    token : String
+                    email: String
                 }, {
                 methods: {
                    

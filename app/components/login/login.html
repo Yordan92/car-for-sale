@@ -1,0 +1,14 @@
+<h1>Log In</h1>
+<form class="top-bar flex-rows" #f="form" (ng-submit)="loginUser(f.value)">
+	<div class="flex-fill top-bar">
+		<span class="flex-fill">email</span>
+		<input  ng-control="email" class="flex-fill" type="text"/>
+	</div>
+
+	<div class="flex-fill top-bar">
+		<span class="flex-fill">Password</span>
+		<input ng-control="password" class="flex-fill" type="password">
+	</div>
+	<input type="submit"/>
+	<button>Close</button>
+</form>

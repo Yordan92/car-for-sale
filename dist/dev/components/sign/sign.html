@@ -12,6 +12,11 @@
 	</div>
 
 	<div class="flex-fill top-bar">
+		<span class="flex-fill">email</span>
+		<input  [ng-form-control]="myForm.controls['email']" class="flex-fill" type="text"/>
+	</div>
+
+	<div class="flex-fill top-bar">
 		<span class="flex-fill">Password</span>
 		<input #passinput [ng-form-control]="myForm.controls['pass']"  class="flex-fill" type="password">
 	</div>
@@ -25,7 +30,6 @@
 	<div  *ng-if="!myForm.controls['re-pass'].valid && myForm.controls['re-pass'].touched" class="ui error message" style="color: red">Re password must not be null
 	</div>
  
-
 <input type="submit"/>
 <button>Close</button>
 </form>

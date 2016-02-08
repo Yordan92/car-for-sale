@@ -58,10 +58,17 @@
   "dependencies": {
     "angular2": "2.0.0-alpha.40",
     "body-parser": "^1.14.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.1",
     "es6-module-loader": "^0.17.8",
+    "express-session": "^1.13.0",
     "hat": "0.0.3",
     "lodash": "^3.10.1",
+    "morgan": "^1.6.1",
     "orm": "^2.1.29",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-remember-me": "0.0.1",
     "pg": "^4.4.3",
     "q-hash": "^1.1.1",
     "systemjs": "^0.19.4"
