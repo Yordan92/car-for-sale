@@ -39,7 +39,6 @@ import {User} from './services/user';
 class App {
   constructor(public user: User) {
     user.get();
-    console.log('_________________',user)
   }
 }
 

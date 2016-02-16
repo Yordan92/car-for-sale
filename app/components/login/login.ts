@@ -15,11 +15,8 @@ import { FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators} from 'angular2/
     styleUrls: ['./components/login/login.css'],
     directives: [FORM_DIRECTIVES]
 })
-// @CanActivate((next, prev) => { console.log(next, prev);return false;})
 export class LogIn {
-	constructor(public user: User) {
-		debugger;
-	}
+	constructor(public user: User) {}
 	
 	loginUser(data):void {
 		this.user.getPerson(data.email, data.password);

@@ -21,14 +21,11 @@ export class About {
   cars = [];
   
   constructor(public list: NameList, private carUpload: CarUpload) {
-    debugger;
     this.cars = list.get();
   }
 
   submit(data) {
-    debugger;
     this.carUpload.uploadCar(data.data, data.file);
-
   }
 
   selectModels(value) {

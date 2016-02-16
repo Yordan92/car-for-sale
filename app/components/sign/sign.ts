@@ -1,6 +1,6 @@
 import {Component, View, NgIf} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-// import {User} from 'services/user';
+import {User} from '../../services/user';
 // import {SignValidators} from 'validators/signValidators';
 import { FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators} from 'angular2/angular2';
 @Component({
@@ -17,7 +17,7 @@ import { FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators} from 'angular2/
 export class Sign {
 	myForm: ControlGroup;
 
-	constructor(fb: FormBuilder) {  
+	constructor(fb: FormBuilder, public user: User) {  
 		let self = this;
     	this.myForm = fb.group({  
 			'firstName': ['', Validators.required],
@@ -26,13 +26,11 @@ export class Sign {
 			'pass': ['', Validators.required],
 			're-pass': ['', Validators.required]
 		});
-		// this.myForm.validator = this.myForm.validator
-		console.log(this.myForm);
 	}
 
 	submitUser(arg): void {
-		// if (arg.valid && arg.value.pass === arg.value['re-pass']) {
-		// 	this.user.getInstance().registrate(arg.value);
-		// }
+		if (arg.valid && arg.value.pass === arg.value['re-pass']) {
+			this.user.registrate(arg.value);
+		}
 	}
 }
