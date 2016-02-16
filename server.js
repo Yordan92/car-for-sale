@@ -12,6 +12,8 @@ var express = require('express'),
     _ = require('lodash'),
     expressSession = require('express-session'),
     flash = require('connect-flash'),
+    multer = require('multer'),
+    upload = multer({dest: 'uploads/'}),
 
     currentUser = null;
 
@@ -80,6 +82,7 @@ app.post('/signUp', passport.authenticate('local'), function (req, res) {
 
 app.post('/registrate', function (req, res) {
     models.Person().then( function(Person) {
+        console.log('---------------', req.body.firstName);
         Person.find({
             email: req.body.email,
         }, function(err, result) {
@@ -94,5 +97,21 @@ app.post('/registrate', function (req, res) {
             email: req.body.email
         }]);
     });
+});
+
+app.post('/uploadCar', upload.single('Car'), function(req, res) {
+    var body = req.body;
+    models.Car().then(function (Car) {
+
+        Car.create([{
+            modelCar: body.model,
+            // make: body.make,
+            // price: parseInt(body.price, 10),
+            // yearOfCreation: body.yearOfCreation,
+            // offerDate: new Date(),
+            // image: req.image.filename
+        }]);
+    });
+
 });
 app.listen(3000);

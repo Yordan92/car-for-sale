@@ -1,14 +1,33 @@
-<p>
-  For reward, here is a list of awesome computer scientists!
-</p>
+<h1>Upload Car</h1>
+<form class="top-bar flex-rows" #f="form" (ng-submit)="submit({data: f.value, file: file.files[0]})">
+    <div class="flex-fill top-bar">
+        <span class="flex-fill">Make</span>
+        <select class="flex-fill" ng-control="make">
+            <option *ng-for="#car of cars" [value]="car.make">{{car.make}}</option>
+        </select>
+    </div>
+    
+    <div class="flex-fill top-bar">
+        <span class="flex-fill">Model</span>
+         <select class="flex-fill" ng-control="model">
+            <option *ng-for="#model of selectModels(f.value.make)" [value]="model">{{model}}</option>
+        </select>
+    </div>
 
-<p>
-  You want more? Add them yourself!
-</p>
-<form (submit)="addName(newname)">
-  <input #newname>
-  <button type="submit">Add</button>
+     <div class="flex-fill top-bar">
+        <span class="flex-fill">Price</span>
+        <input ng-control="price" type="text"/>
+    </div>
+
+    <div class="flex-fill top-bar">
+        <span class="flex-fill">Year of creation</span>
+        <input ng-control="year" class="flex-fill" type="date">
+    </div>
+
+    <div class="flex-fill top-bar">
+        <span class="flex-fill">Image</span>
+        <input #file class="flex-fill" type="file">
+    </div>
+    <input type="submit"/>
+    <button type="button">Close</button>
 </form>
-<ul>
-  <li *ng-for="#name of list.get(); #i = index;">{{name}}&nbsp;<a (click)="list.remove(i)">remove</a></li>
-</ul>

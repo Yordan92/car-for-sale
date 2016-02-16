@@ -1,6 +1,8 @@
-import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, CORE_DIRECTIVES, NgFor, NgModel} from 'angular2/angular2';
 
 import {NameList} from '../../services/name_list';
+import {CarUpload} from '../../services/car_upload'
+import { FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators} from 'angular2/angular2';
 
 @Component({
   selector: 'about',
@@ -13,14 +15,23 @@ import {NameList} from '../../services/name_list';
     `
   ],
   templateUrl: './components/about/about.html',
-  directives: [CORE_DIRECTIVES]
+  directives: [CORE_DIRECTIVES, NgFor, NgModel, FORM_DIRECTIVES]
 })
 export class About {
-  constructor(public list: NameList) {}
-  addName(newname): boolean {
-    this.list.add(newname.value);
-    newname.value = '';
-    // prevent default form submit behavior to refresh the page
-    return false;
+  cars = [];
+  
+  constructor(public list: NameList, private carUpload: CarUpload) {
+    debugger;
+    this.cars = list.get();
+  }
+
+  submit(data) {
+    debugger;
+    this.carUpload.uploadCar(data.data, data.file);
+
+  }
+
+  selectModels(value) {
+    return this.list.getCarByMake(value)
   }
 }

@@ -14,11 +14,12 @@ import {Users} from './components/users/users';
 import {Sign} from './components/sign/sign';
 import {LogIn} from './components/login/login';
 import {UserService} from './components/users/services/user_service';
-// import {current_user} from './services/current_user';
+import {CarUpload} from './services/car_upload';
+import {Injector} from 'angular2/angular2';
 import {User} from './services/user';
 @Component({
   selector: 'app',
-  viewBindings: [NameList, UserService, User],
+  viewBindings: [NameList, UserService, CarUpload],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
   encapsulation: ViewEncapsulation.None,
@@ -36,8 +37,9 @@ import {User} from './services/user';
 ])
 
 class App {
-
-  constructor(public user: User) { 
+  constructor(public user: User) {
+    user.get();
+    console.log('_________________',user)
   }
 }
 

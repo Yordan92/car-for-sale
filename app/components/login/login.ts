@@ -1,5 +1,6 @@
 import {Component, View, NgIf} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Inject} from 'angular2/angular2';
 import {User} from '../../services/user';
 import {CurrentUser} from '../../services/current_user';
 // import {SignValidators} from 'validators/signValidators';

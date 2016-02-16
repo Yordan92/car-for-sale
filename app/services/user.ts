@@ -1,13 +1,12 @@
 import {Inject} from 'angular2/angular2';
 import {Http, Headers} from 'angular2/http';
 import {CurrentUser} from './current_user'
-// import {localStorageHeader} from 'services/token';
 
 export class User {
     currentUser: CurrentUser;
     currUser;
 
-    constructor(@Inject(Http) private http: Http) {
+    constructor( @Inject(Http) private http: Http) {
         // this.currentUser = new CurrentUser();
         this.get();
 
@@ -23,9 +22,9 @@ export class User {
                 'Content-Type': 'application/json'
             })
         }).map(res => res.json())
-        .subscribe(function (data) {
-          this.currUser = data;
-            // localStorage.setItem('token', this.currUser.token);
+        .subscribe( (data) => {
+            this.setUser(data);
+            window.location.href='/';
         });
     }
     registrate(obj) {
@@ -41,14 +40,19 @@ export class User {
     get() {
         this.http.get('http://localhost:3000/user')
             .map(res => res.json())
-            .subscribe(function (data) {
-              this.currUser = data;
-              console.log(this.currUser);
+            .subscribe( (data) => {
+                this.setUser(data);
+
             });
+    }
+
+    setUser(user) {
+        this.currUser = user;
     }
 
     getUser() {
         return this.currUser;
     }
+
   
 }
