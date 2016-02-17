@@ -5,7 +5,6 @@
 	    <a [router-link]="['/About']">About</a>
 	    <a [router-link]="['/Sign']">Sign</a>
 	    <a [router-link]="['/LogIn']" *ng-if="!user.currUser">LogIn</a>
-	    <a [router-link]="['/Users', 'Users-home']">Users</a>
 	  </nav>
 	  <h1 *ng-if="user.currUser">Hello {{user.currUser.firstName}}!</h1>
 	  <router-outlet></router-outlet>

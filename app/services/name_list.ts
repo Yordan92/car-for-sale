@@ -14,7 +14,7 @@ export class NameList {
   }
 
   getCarByMake(make) {
-    let models = []
+    let models = [];
     this.cars.forEach((car) => {
       if (car.make === make) {
         models = car.models;

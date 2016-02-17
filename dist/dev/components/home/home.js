@@ -15,10 +15,10 @@ var Home = (function () {
     }
     Home = __decorate([
         angular2_1.Component({
-            selector: 'home',
+            selector: 'home'
         }),
         angular2_1.View({
-            template: "\n   <h1>Howdy!</h1>\n\n   <h2>\n     Gratz!\n   </h2>\n   \t  <h1>tova e test</h1>\n\n   <p class=\"note\">\n     Your deployment of Angular 2 Seed worked perfectly!\n     Click <em>about (above)</em> to get your reward!\n   </p>\n\t",
+            template: "\n   <div>\n   <div ng-for=\"*car of carInStock\">\n   \t<h1>{car.model}</h1>\n   </div>\n   </div>\n\t",
             styles: ["\n      .note {\n        color: #a8a8a8;\n      }\n    "]
         }), 
         __metadata('design:paramtypes', [])
@@ -27,4 +27,4 @@ var Home = (function () {
 })();
 exports.Home = Home;
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvaG9tZS9ob21lLnRzIl0sIm5hbWVzIjpbIkhvbWUiLCJIb21lLmNvbnN0cnVjdG9yIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQUFBLHlCQUE4QixtQkFBbUIsQ0FBQyxDQUFBO0FBR2xEO0lBQUFBO0lBMEJtQkMsQ0FBQ0E7SUExQnBCRDtRQUFDQSxvQkFBU0EsQ0FBQ0E7WUFDVkEsUUFBUUEsRUFBRUEsTUFBTUE7U0FFaEJBLENBQUNBO1FBRURBLGVBQUlBLENBQUNBO1lBQ0xBLFFBQVFBLEVBQUVBLDRPQVlUQTtZQUNFQSxNQUFNQSxFQUFFQSxDQUFDQSx5REFJUkEsQ0FBQ0E7U0FDTEEsQ0FBQ0E7O2FBRWtCQTtJQUFEQSxXQUFDQTtBQUFEQSxDQTFCbkIsQUEwQm9CQSxJQUFBO0FBQVAsWUFBSSxPQUFHLENBQUEiLCJmaWxlIjoiY29tcG9uZW50cy9ob21lL2hvbWUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0NvbXBvbmVudCwgVmlld30gZnJvbSAnYW5ndWxhcjIvYW5ndWxhcjInO1xuLy8gaW1wb3J0IHtDYW5BY3RpdmF0ZX0gZnJvbSAnYW5ndWxhcjIvcm91dGVyJztcbi8vIGltcG9ydCB7VXNlcn0gZnJvbSAnc2VydmljZXMvdXNlcic7XG5AQ29tcG9uZW50KHtcblx0c2VsZWN0b3I6ICdob21lJyxcblx0Ly8gdmlld0JpbmRpbmdzOiBbVXNlcl1cdFxufSlcblxuQFZpZXcoe1xuXHR0ZW1wbGF0ZTogYFxuICAgPGgxPkhvd2R5ITwvaDE+XG5cbiAgIDxoMj5cbiAgICAgR3JhdHohXG4gICA8L2gyPlxuICAgXHQgIDxoMT50b3ZhIGUgdGVzdDwvaDE+XG5cbiAgIDxwIGNsYXNzPVwibm90ZVwiPlxuICAgICBZb3VyIGRlcGxveW1lbnQgb2YgQW5ndWxhciAyIFNlZWQgd29ya2VkIHBlcmZlY3RseSFcbiAgICAgQ2xpY2sgPGVtPmFib3V0IChhYm92ZSk8L2VtPiB0byBnZXQgeW91ciByZXdhcmQhXG4gICA8L3A+XG5cdGAsXG4gICAgc3R5bGVzOiBbYFxuICAgICAgLm5vdGUge1xuICAgICAgICBjb2xvcjogI2E4YThhODtcbiAgICAgIH1cbiAgICBgXVxufSlcbi8vIEBDYW5BY3RpdmF0ZSgobmV4dCwgcHJldikgPT4geyBjb25zb2xlLmxvZyhuZXh0LCBwcmV2KTtyZXR1cm4gZmFsc2U7fSlcbmV4cG9ydCBjbGFzcyBIb21lIHt9XG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvaG9tZS9ob21lLnRzIl0sIm5hbWVzIjpbIkhvbWUiLCJIb21lLmNvbnN0cnVjdG9yIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQUFBLHlCQUE4QixtQkFBbUIsQ0FBQyxDQUFBO0FBQ2xEO0lBQUFBO0lBa0JtQkMsQ0FBQ0E7SUFsQnBCRDtRQUFDQSxvQkFBU0EsQ0FBQ0E7WUFDVkEsUUFBUUEsRUFBRUEsTUFBTUE7U0FDaEJBLENBQUNBO1FBRURBLGVBQUlBLENBQUNBO1lBQ0xBLFFBQVFBLEVBQUVBLHlHQU1UQTtZQUNFQSxNQUFNQSxFQUFFQSxDQUFDQSx5REFJUkEsQ0FBQ0E7U0FDTEEsQ0FBQ0E7O2FBQ2tCQTtJQUFEQSxXQUFDQTtBQUFEQSxDQWxCbkIsQUFrQm9CQSxJQUFBO0FBQVAsWUFBSSxPQUFHLENBQUEiLCJmaWxlIjoiY29tcG9uZW50cy9ob21lL2hvbWUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0NvbXBvbmVudCwgVmlld30gZnJvbSAnYW5ndWxhcjIvYW5ndWxhcjInO1xuQENvbXBvbmVudCh7XG5cdHNlbGVjdG9yOiAnaG9tZSdcbn0pXG5cbkBWaWV3KHtcblx0dGVtcGxhdGU6IGBcbiAgIDxkaXY+XG4gICA8ZGl2IG5nLWZvcj1cIipjYXIgb2YgY2FySW5TdG9ja1wiPlxuICAgXHQ8aDE+e2Nhci5tb2RlbH08L2gxPlxuICAgPC9kaXY+XG4gICA8L2Rpdj5cblx0YCxcbiAgICBzdHlsZXM6IFtgXG4gICAgICAubm90ZSB7XG4gICAgICAgIGNvbG9yOiAjYThhOGE4O1xuICAgICAgfVxuICAgIGBdXG59KVxuZXhwb3J0IGNsYXNzIEhvbWUge31cbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==

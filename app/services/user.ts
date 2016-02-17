@@ -1,13 +1,10 @@
 import {Inject} from 'angular2/angular2';
 import {Http, Headers} from 'angular2/http';
-import {CurrentUser} from './current_user'
 
 export class User {
-    currentUser: CurrentUser;
     currUser;
 
     constructor( @Inject(Http) private http: Http) {
-        // this.currentUser = new CurrentUser();
         this.get();
 
     }
@@ -36,7 +33,7 @@ export class User {
         .map(res => res.json())
         .subscribe( (data) => this.getPerson(data.firstName, data.pass));
     }
-    
+
     get() {
         this.http.get('http://localhost:3000/user')
             .map(res => res.json())
@@ -53,6 +50,4 @@ export class User {
     getUser() {
         return this.currUser;
     }
-
-  
 }

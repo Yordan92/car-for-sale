@@ -10,16 +10,13 @@ import {HTTP_BINDINGS} from 'angular2/http';
 import {Home} from './components/home/home';
 import {About} from './components/about/about';
 import {NameList} from './services/name_list';
-import {Users} from './components/users/users';
 import {Sign} from './components/sign/sign';
 import {LogIn} from './components/login/login';
-import {UserService} from './components/users/services/user_service';
 import {CarUpload} from './services/car_upload';
-import {Injector} from 'angular2/angular2';
 import {User} from './services/user';
 @Component({
   selector: 'app',
-  viewBindings: [NameList, UserService, CarUpload],
+  viewBindings: [NameList, CarUpload],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
   encapsulation: ViewEncapsulation.None,
@@ -32,8 +29,7 @@ import {User} from './services/user';
   { path: '/home', component: Home, as: 'Home' },
   { path: '/about', component: About, as: 'About' },
   { path: '/login', component: LogIn, as: 'LogIn' },
-  { path: '/sign', component: Sign, as: 'Sign'},
-  { path: '/users/...', component: Users, as: 'Users' }
+  { path: '/sign', component: Sign, as: 'Sign'}
 ])
 
 class App {

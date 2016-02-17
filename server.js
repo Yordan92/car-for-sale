@@ -17,7 +17,8 @@ var express = require('express'),
 
     currentUser = null,
     Person,
-    Car;
+    Car,
+    passwordHash = require('password-hash');
 
 
 app.use(orm.express("postgres://yordan:123@localhost:5432/car_shop?debug=true", {
@@ -39,9 +40,9 @@ passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
     }, function(username, password, done) {
-       
+
         Person.find({ email: username }, function(err, result) {
-            if (err || result[0] && result[0].password !== password) {
+            if (err || result[0] && !passwordHash.verify(password, result[0].password)) {
                 done(err || 'There is no user with such email');
             } else {
                 done(null, result[0]);
@@ -102,7 +103,7 @@ app.post('/registrate', function (req, res) {
             Person.create([{
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                password: req.body.pass,
+                password: passwordHash.generate(req.body.pass),
                 email: req.body.email
             }], function(err) {
                 if (err) {
@@ -116,7 +117,6 @@ app.post('/registrate', function (req, res) {
 });
 
 app.post('/uploadCar', upload.single('Car'), function(req, res) {
-    console.log(req.file, '_________________________');
     var body = req.body;
     Car.create([{
         modelCar: body.model,
@@ -132,5 +132,12 @@ app.post('/uploadCar', upload.single('Car'), function(req, res) {
             res.status(200).send();
         }
     });
+});
+
+app.get('/cars', function(req, res) {
+   console.log(Car.all().get(function(cars) {
+        res.send(cars);
+   }));
+
 });
 app.listen(3000);

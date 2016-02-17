@@ -1,8 +1,8 @@
 import {Component, CORE_DIRECTIVES, NgFor, NgModel} from 'angular2/angular2';
 
 import {NameList} from '../../services/name_list';
-import {CarUpload} from '../../services/car_upload'
-import { FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators} from 'angular2/angular2';
+import {CarUpload} from '../../services/car_upload';
+import { FORM_DIRECTIVES} from 'angular2/angular2';
 
 @Component({
   selector: 'about',
@@ -19,7 +19,7 @@ import { FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators} from 'angular2/
 })
 export class About {
   cars = [];
-  
+
   constructor(public list: NameList, private carUpload: CarUpload) {
     this.cars = list.get();
   }
@@ -29,6 +29,6 @@ export class About {
   }
 
   selectModels(value) {
-    return this.list.getCarByMake(value)
+    return this.list.getCarByMake(value);
   }
 }
